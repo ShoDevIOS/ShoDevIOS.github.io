@@ -3,149 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShoDev | iOS Apps by Sho</title>
+    <title>ShoDev | iOS Engineering</title>
     <style>
         :root {
-            --primary: #2563EB; /* Developer blue */
-            --secondary: #7C3AED; /* Purple accent */
-            --dark: #1F2937;
-            --light-bg: #F9FAFB;
+            --primary: #2563EB;       /* IBM Blue */
+            --primary-dark: #1E40AF;  /* Darker blue */
+            --accent: #7C3AED;        /* Purple */
+            --text: #1F2937;          /* Gray-800 */
+            --text-light: #6B7280;    /* Gray-500 */
+            --bg-light: #F9FAFB;      /* Gray-50 */
+            --border: #E5E7EB;       /* Gray-200 */
         }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 
+                         'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
+            color: var(--text);
             max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
+            background-color: white;
         }
+        
         header {
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid #E5E7EB;
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
         }
+        
         .logo {
             font-weight: 700;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            letter-spacing: -0.5px;
             color: var(--primary);
+            margin-bottom: 10px;
         }
-        nav {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 20px 0;
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
+        
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
         .app-card {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            padding: 25px;
-            margin: 30px 0;
-            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+        
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .app-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 25px;
+            color: white;
+        }
+        
         .app-icon {
             width: 60px;
             height: 60px;
-            background: var(--primary);
-            border-radius: 15px;
-            display: inline-block;
-            margin-right: 15px;
-            vertical-align: middle;
+            background: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .privacy-box {
-            background: var(--light-bg);
+        
+        .app-icon img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+        
+        .app-body {
+            padding: 25px;
+        }
+        
+        .app-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .app-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .legal-section {
+            background: var(--bg-light);
+            border-radius: 16px;
             padding: 30px;
-            border-radius: 8px;
-            margin: 40px 0;
+            margin: 60px 0;
         }
+        
+        .legal-section h2 {
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+        
+        footer {
+            text-align: center;
+            margin: 80px 0 40px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
         @media (max-width: 768px) {
-            body { padding: 15px; }
-            .app-card { padding: 15px; }
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 40px 0 30px;
+            }
+            
+            .legal-section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">ShoDev</div>
-        <p>Thoughtful iOS apps for passionate communities</p>
-        <nav>
-            <a href="#apps">My Apps</a>
-            <a href="#support">Support</a>
-            <a href="#privacy">Privacy</a>
-            <a href="mailto:sho.dev.ios@gmail.com">Contact</a>
-        </nav>
+        <p class="tagline">Precision-engineered iOS experiences for specialized communities</p>
     </header>
 
-    <section id="apps">
-        <h2>🚀 My Apps</h2>
-        
-        <div class="app-card">
-            <div class="app-icon" style="background: #FF6B6B;"></div>
-            <div style="display: inline-block; width: 80%; vertical-align: middle;">
-                <h3>BoulderLog</h3>
-                <p>The ultimate bouldering companion for tracking sends, analyzing progress, and crushing projects.</p>
-                
-                <h4>Key Features:</h4>
-                <ul>
-                    <li>📊 Log climbs with grades, attempts, and notes</li>
-                    <li>⏱️ Pro timer features for training</li>
-                    <li>📈 Progress analytics and grade pyramids</li>
-                    <li>☁️ iCloud sync across devices</li>
-                </ul>
-                
-                <a href="#boulderlog-support">Support</a> | 
-                <a href="#" onclick="alert('Coming soon to App Store!')">Download</a>
+    <main>
+        <div class="app-grid">
+            <!-- BoulderLog App Card -->
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-icon">
+                        <img src="public/BoulderingLogo.png" alt="BoulderLog icon">
+                    </div>
+                    <h2 class="app-title">BoulderLog</h2>
+                </div>
+                <div class="app-body">
+                    <p class="app-description">The professional bouldering companion for tracking progress and optimizing training.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Comprehensive send logging with grade tracking</li>
+                        <li>Advanced timer features for interval training</li>
+                        <li>Visual analytics with grade progression charts</li>
+                        <li>iCloud sync across all devices</li>
+                        <li>Pro version with unlimited capabilities</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Future App Placeholder -->
+            <div class="app-card" style="opacity:0.9;">
+                <div class="app-header" style="background:linear-gradient(135deg, var(--accent), #6D28D9);">
+                    <div class="app-icon">
+                        <div style="width:50px;height:50px;background:white;border-radius:12px;"></div>
+                    </div>
+                    <h2 class="app-title">Next Project</h2>
+                </div>
+                <div class="app-body">
+                    <p class="app-description">Currently in development - focusing on delivering exceptional quality.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Designed for specialized use cases</li>
+                        <li>Native SwiftUI implementation</li>
+                        <li>Privacy-focused architecture</li>
+                        <li>Coming 2025</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        
-        <!-- Future app template -->
-        <div class="app-card" style="opacity: 0.7;">
-            <div class="app-icon" style="background: var(--secondary);"></div>
-            <h3>More Apps Coming Soon</h3>
-            <p>Currently in development - follow <a href="mailto:sho.dev.ios@gmail.com">@ShoDev</a> for updates!</p>
-        </div>
-    </section>
 
-    <section id="support">
-        <h2>🔧 App Support</h2>
-        
-        <div id="boulderlog-support" class="app-card">
-            <h3>BoulderLog Support</h3>
-            <p><strong>Email:</strong> <a href="mailto:sho.dev.ios@gmail.com?subject=BoulderLog Support">sho.dev.ios@gmail.com</a></p>
+        <!-- Legal Sections -->
+        <div class="legal-section">
+            <h2>Privacy Policy</h2>
+            <p><em>Last Updated: June 2024</em></p>
             
-            <h4>FAQs</h4>
-            <p><strong>Q: How do I restore purchases?</strong><br>
-            A: Go to Settings → tap "Restore Purchases"</p>
+            <h3>Data Collection</h3>
+            <p>We do not collect or store your personal activity data in BoulderLog. All climb records and training information remain on your device unless you explicitly enable iCloud synchronization.</p>
             
-            <p><strong>Q: Where's my data stored?</strong><br>
-            A: Locally on device with optional iCloud backup</p>
+            <h3>Analytics</h3>
+            <p>Basic anonymized usage statistics (such as feature adoption and crash reports) are collected through Apple's private analytics framework to help improve app stability and user experience.</p>
+            
+            <h3>In-App Purchases</h3>
+            <p>Purchase data is processed securely through the App Store. We do not have access to your payment information.</p>
         </div>
-    </section>
 
-    <section id="privacy" class="privacy-box">
-        <h2>🔒 Privacy Policy</h2>
-        <p><em>Last Updated: June 2024</em></p>
-        
-        <h3>Data Collection</h3>
-        <p>We <strong>do not</strong> collect or store your personal climbing data. All information stays on your device unless you enable iCloud sync.</p>
-        
-        <h3>Analytics</h3>
-        <p>Basic anonymized usage data (crash reports, feature usage) is collected via <a href="https://developer.apple.com/documentation/analytics">Apple App Analytics</a> to improve the app.</p>
-        
-        <h3>Contact</h3>
-        <p>For privacy questions: <a href="mailto:sho.dev.ios@gmail.com?subject=Privacy Question">sho.dev.ios@gmail.com</a></p>
-        
-        <h3>Terms of Service</h3>
-        <p>By using our apps, you agree to:</p>
-        <ul>
-            <li>Use the app as intended</li>
-            <li>Not attempt to reverse-engineer our software</li>
-            <li>Understand that we're not liable for climbing injuries</li>
-        </ul>
-    </section>
+        <div class="legal-section">
+            <h2>Terms of Service</h2>
+            <p><em>Effective: June 2024</em></p>
+            
+            <h3>1. License</h3>
+            <p>You are granted a non-exclusive, non-transferable license to use ShoDev applications on Apple devices you own or control.</p>
+            
+            <h3>2. Restrictions</h3>
+            <p>You may not reverse-engineer, modify, or distribute any ShoDev application without explicit permission.</p>
+            
+            <h3>3. Liability</h3>
+            <p>ShoDev applications are provided "as is". We are not responsible for any injuries sustained during climbing activities.</p>
+        </div>
+    </main>
 
-    <footer style="text-align: center; margin-top: 50px; color: #6B7280;">
-        <p>© 2024 ShoDev | Crafted with ♥ in [Your Location]</p>
+    <footer>
+        <p>© 2024 ShoDev. All rights reserved.</p>
+        <p>Built with Swift, SwiftUI, and passion.</p>
     </footer>
 </body>
 </html>
