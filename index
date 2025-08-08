@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoDev | iOS Apps by Sho</title>
+    <style>
+        :root {
+            --primary: #2563EB; /* Developer blue */
+            --secondary: #7C3AED; /* Purple accent */
+            --dark: #1F2937;
+            --light-bg: #F9FAFB;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .app-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid #E5E7EB;
+        }
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 15px;
+            display: inline-block;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+        .privacy-box {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .app-card { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ShoDev</div>
+        <p>Thoughtful iOS apps for passionate communities</p>
+        <nav>
+            <a href="#apps">My Apps</a>
+            <a href="#support">Support</a>
+            <a href="#privacy">Privacy</a>
+            <a href="mailto:sho.dev.ios@gmail.com">Contact</a>
+        </nav>
+    </header>
+
+    <section id="apps">
+        <h2>🚀 My Apps</h2>
+        
+        <div class="app-card">
+            <div class="app-icon" style="background: #FF6B6B;"></div>
+            <div style="display: inline-block; width: 80%; vertical-align: middle;">
+                <h3>BoulderLog</h3>
+                <p>The ultimate bouldering companion for tracking sends, analyzing progress, and crushing projects.</p>
+                
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>📊 Log climbs with grades, attempts, and notes</li>
+                    <li>⏱️ Pro timer features for training</li>
+                    <li>📈 Progress analytics and grade pyramids</li>
+                    <li>☁️ iCloud sync across devices</li>
+                </ul>
+                
+                <a href="#boulderlog-support">Support</a> | 
+                <a href="#" onclick="alert('Coming soon to App Store!')">Download</a>
+            </div>
+        </div>
+        
+        <!-- Future app template -->
+        <div class="app-card" style="opacity: 0.7;">
+            <div class="app-icon" style="background: var(--secondary);"></div>
+            <h3>More Apps Coming Soon</h3>
+            <p>Currently in development - follow <a href="mailto:sho.dev.ios@gmail.com">@ShoDev</a> for updates!</p>
+        </div>
+    </section>
+
+    <section id="support">
+        <h2>🔧 App Support</h2>
+        
+        <div id="boulderlog-support" class="app-card">
+            <h3>BoulderLog Support</h3>
+            <p><strong>Email:</strong> <a href="mailto:sho.dev.ios@gmail.com?subject=BoulderLog Support">sho.dev.ios@gmail.com</a></p>
+            
+            <h4>FAQs</h4>
+            <p><strong>Q: How do I restore purchases?</strong><br>
+            A: Go to Settings → tap "Restore Purchases"</p>
+            
+            <p><strong>Q: Where's my data stored?</strong><br>
+            A: Locally on device with optional iCloud backup</p>
+        </div>
+    </section>
+
+    <section id="privacy" class="privacy-box">
+        <h2>🔒 Privacy Policy</h2>
+        <p><em>Last Updated: June 2024</em></p>
+        
+        <h3>Data Collection</h3>
+        <p>We <strong>do not</strong> collect or store your personal climbing data. All information stays on your device unless you enable iCloud sync.</p>
+        
+        <h3>Analytics</h3>
+        <p>Basic anonymized usage data (crash reports, feature usage) is collected via <a href="https://developer.apple.com/documentation/analytics">Apple App Analytics</a> to improve the app.</p>
+        
+        <h3>Contact</h3>
+        <p>For privacy questions: <a href="mailto:sho.dev.ios@gmail.com?subject=Privacy Question">sho.dev.ios@gmail.com</a></p>
+        
+        <h3>Terms of Service</h3>
+        <p>By using our apps, you agree to:</p>
+        <ul>
+            <li>Use the app as intended</li>
+            <li>Not attempt to reverse-engineer our software</li>
+            <li>Understand that we're not liable for climbing injuries</li>
+        </ul>
+    </section>
+
+    <footer style="text-align: center; margin-top: 50px; color: #6B7280;">
+        <p>© 2024 ShoDev | Crafted with ♥ in [Your Location]</p>
+    </footer>
+</body>
+</html>
