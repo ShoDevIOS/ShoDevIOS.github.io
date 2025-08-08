@@ -1,0 +1,4 @@
+.app-icon img {
+  object-fit: contain; /* Ensures your logo fits perfectly */
+  border-radius: 12px; /* Matches iOS app icon style */
+}
