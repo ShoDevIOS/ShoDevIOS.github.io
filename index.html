@@ -3,110 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShoDev | iOS Engineering</title>
+    <title>ShoDev | iOS App Development</title>
+    <meta name="description" content="Quality iOS apps by ShoDev - Starting with BoulderLog, the ultimate bouldering tracker">
     <style>
         :root {
             --primary: #2563EB;       /* IBM Blue */
             --primary-dark: #1E40AF;  /* Darker blue */
+            --primary-light: #EFF6FF; /* Light blue */
             --accent: #7C3AED;        /* Purple */
             --text: #1F2937;          /* Gray-800 */
             --text-light: #6B7280;    /* Gray-500 */
             --bg-light: #F9FAFB;      /* Gray-50 */
             --border: #E5E7EB;       /* Gray-200 */
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
         body {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 
-                         'Segoe UI', Roboto, sans-serif;
+                         'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--text);
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
             background-color: white;
+            -webkit-font-smoothing: antialiased;
         }
         
         header {
             text-align: center;
-            padding: 60px 0 40px;
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            margin: 0 -20px 40px;
             border-bottom: 1px solid var(--border);
         }
         
         .logo {
-            font-weight: 700;
-            font-size: 2.5rem;
-            letter-spacing: -0.5px;
+            font-weight: 800;
+            font-size: 2.8rem;
+            letter-spacing: -1px;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
         }
         
         .tagline {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
+            font-weight: 400;
         }
         
         .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
         }
         
         .app-card {
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
             overflow: hidden;
             border: 1px solid var(--border);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
+            position: relative;
         }
         
         .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
         
         .app-header {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            padding: 25px;
+            padding: 30px;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-header::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
         }
         
         .app-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background: white;
-            border-radius: 14px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .app-card:hover .app-icon {
+            transform: scale(1.1);
         }
         
         .app-icon img {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
             object-fit: contain;
         }
         
         .app-body {
-            padding: 25px;
+            padding: 30px;
         }
         
         .app-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
             color: var(--text);
         }
         
         .app-description {
             color: var(--text-light);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
         }
         
         .feature-list {
@@ -116,9 +149,10 @@
         }
         
         .feature-list li {
-            padding: 8px 0;
+            padding: 10px 0;
             position: relative;
-            padding-left: 25px;
+            padding-left: 32px;
+            font-size: 0.95rem;
         }
         
         .feature-list li:before {
@@ -127,63 +161,126 @@
             left: 0;
             color: var(--primary);
             font-weight: bold;
+            font-size: 1.1rem;
         }
-                .support-section {
-            background: var(--bg-light);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 60px 0;
+        
+        .support-section {
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border-radius: 18px;
+            padding: 40px;
+            margin: 70px 0;
             text-align: center;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .support-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .support-section h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
         }
         
         .support-email {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background: white;
-            padding: 15px 25px;
-            border-radius: 8px;
+            padding: 16px 28px;
+            border-radius: 12px;
             border: 1px solid var(--border);
-            font-family: monospace;
+            font-family: 'SF Mono', Menlo, monospace;
             font-size: 1.1rem;
-            margin: 15px 0;
-            transition: all 0.2s;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            color: var(--primary-dark);
+            font-weight: 500;
         }
         
         .support-email:hover {
             background: var(--primary);
             color: white;
-            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .support-email::before {
+            content: "✉️";
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
         
         .legal-section {
-            background: var(--bg-light);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 60px 0;
+            background: white;
+            border-radius: 18px;
+            padding: 40px;
+            margin: 70px 0;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
         }
         
         .legal-section h2 {
             color: var(--primary-dark);
             margin-top: 0;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .legal-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 3px;
+        }
+        
+        .legal-section h3 {
+            color: var(--text);
+            margin-top: 25px;
         }
         
         footer {
             text-align: center;
-            margin: 80px 0 40px;
+            margin: 100px 0 50px;
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+        }
+        
+        footer p {
+            margin: 8px 0;
         }
         
         @media (max-width: 768px) {
+            header {
+                padding: 60px 0 40px;
+            }
+            
+            .logo {
+                font-size: 2.4rem;
+            }
+            
             .app-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
             
-            header {
-                padding: 40px 0 30px;
-            }
-            
-            .legal-section {
-                padding: 20px;
+            .support-section, .legal-section {
+                padding: 30px 20px;
+                margin: 50px 0;
             }
         }
     </style>
@@ -220,7 +317,7 @@
             <div class="app-card" style="opacity:0.9;">
                 <div class="app-header" style="background:linear-gradient(135deg, var(--accent), #6D28D9);">
                     <div class="app-icon">
-                        <div style="width:50px;height:50px;background:white;border-radius:12px;"></div>
+                        <div style="width:60px;height:60px;background:white;border-radius:14px;"></div>
                     </div>
                     <h2 class="app-title">Next Project</h2>
                 </div>
@@ -248,11 +345,14 @@
             <h3>In-App Purchases</h3>
             <p>Purchase data is processed securely through the App Store. We do not have access to your payment information.</p>
         </div>
+
         <div class="support-section">
             <h2>Technical Support</h2>
             <p>For assistance with any ShoDev applications</p>
             <a href="mailto:sho.dev.ios@gmail.com" class="support-email">sho.dev.ios@gmail.com</a>
+            <p>We typically respond within 24-48 hours</p>
         </div>
+
         <div class="legal-section">
             <h2>Terms of Service</h2>
             <p><em>Effective: June 2025</em></p>
